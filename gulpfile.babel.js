@@ -328,6 +328,10 @@ gulp.task('replace', () =>
           match: 'tested_up_to',
           replacement: pkg.config.plugin.tested_up_to
         },
+        {
+          match: 'tags',
+          replacement: pkg.config.plugin.tags
+        }
       ]
     }))
     .pipe(gulp.dest(config.build.folder))

@@ -16,7 +16,8 @@
     "plugin": {
       "requires": "4.7",
       "tested_up_to": "4.9",
-      "uri": "https://thatplugincompany.com/"
+      "uri": "https://thatplugincompany.com/",
+      "tags": "wordpress, plugin"
     },
     "author": {
       "email": "info@thatplugincompany.com",
