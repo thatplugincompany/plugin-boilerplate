@@ -1,0 +1,30 @@
+{
+  "extends": "stylelint-config-standard",
+  "plugins": [
+    "stylelint-scss"
+  ],
+  "rules": {
+    "at-rule-empty-line-before": [
+      "always", {
+        "except": ["blockless-after-same-name-blockless", "first-nested"],
+        "ignore": ["after-comment"]
+      }
+    ],
+    "at-rule-no-unknown": null,
+    "max-line-length": [
+      80, {
+        "ignore": ["non-comments"],
+        "ignorePattern": ["/(https?://([-\\w\\.]+)+(:\\d+)?(/([\\w/_\\.]*(\\?\\S+)?)?)?)/"]
+      }
+    ],
+    "media-feature-name-no-unknown": [
+      true, {
+        ignoreMediaFeatureNames: ["prefers-reduced-motion"]
+      }
+    ],
+    "scss/at-mixin-argumentless-call-parentheses": "never",
+    "scss/at-extend-no-missing-placeholder": true,
+    "scss/selector-no-redundant-nesting-selector": true,
+    "scss/at-rule-no-unknown": true
+  }
+}

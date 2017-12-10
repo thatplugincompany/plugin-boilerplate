@@ -1,0 +1,57 @@
+{
+  "name": "plugin-boilerplate",
+  "version": "1.0.0",
+  "description": "A boilerplate for developing WordPress Plugins.",
+  "author": "ThatPluginCompany",
+  "license": "GPL-2.0+",
+  "scripts": {
+    "build": "npm run clean && gulp build --build --gulpfile ./gulpfile.babel.js",
+    "dev": "npm run clean && gulp --gulpfile ./gulpfile.babel.js",
+    "clean": "rm -rf ./assets ./build"
+  },
+  "config": {
+    "name": "Plugin Boilerplate",
+    "slug": "plugin-boilerplate",
+    "prefix": "tpc_pb",
+    "plugin": {
+      "requires": "4.7",
+      "tested_up_to": "4.9",
+      "uri": "https://thatplugincompany.com/"
+    },
+    "author": {
+      "email": "info@thatplugincompany.com",
+      "uri": "https://thatplugincompany.com/"
+    }
+  },
+  "devDependencies": {
+    "autoprefixer": "^7.2.1",
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-register": "^6.26.0",
+    "browser-sync": "^2.18.13",
+    "cssnano": "^3.10.0",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^7.0.0",
+    "gulp-copy": "^1.0.1",
+    "gulp-eslint": "^4.0.0",
+    "gulp-imagemin": "^4.0.0",
+    "gulp-notify": "^3.0.0",
+    "gulp-phpcs": "2.1.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-postcss": "^7.0.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-replace-task": "^0.11.0",
+    "gulp-sass": "^3.1.0",
+    "gulp-stylelint": "^5.0.0",
+    "gulp-uglify": "^3.0.0",
+    "gulp-util": "^3.0.8",
+    "gulp-wp-pot": "^2.0.6",
+    "gulp-xo": "^0.16.0",
+    "gulp-zip": "^4.0.0",
+    "postcss-sass": "^0.2.0",
+    "run-sequence": "^2.2.0",
+    "stylelint": "^8.3.1",
+    "stylelint-config-standard": "^18.0.0",
+    "stylelint-scss": "^2.2.0"
+  }
+}
