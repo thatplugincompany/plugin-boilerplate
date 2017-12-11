@@ -68,7 +68,7 @@ const config = {
 gulp.task('browserSync', () => {
   if (!util.env.url) return
 
-	browserSync.init({
+  browserSync.init({
     proxy: util.env.url,
     open: true,
     injectChanges: true
