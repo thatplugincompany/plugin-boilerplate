@@ -9,7 +9,7 @@ A standardized, organized, object-oriented foundation for building high-quality 
 3. If necessary, change the minimum PHP version in `plugin-boilerplate.php`. It appears twice, once in the file header and once in the version check.
 4. Run the following commands:
 ```sh
-$ yarn
+$ yarn install
 $ yarn dev
 ```
 5. Start developing!
