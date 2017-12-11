@@ -8,7 +8,7 @@ A standardized, organized, object-oriented foundation for building high-quality 
 2. Change the name, description and config in `package.json`. Make sure the name only contains letters, numbers and spaces.
 3. If necessary, change the minimum PHP version in `plugin-boilerplate.php`. It appears twice, once in the file header and once in the version check.
 4. Run the following commands:
-```ssh
+```sh
 $ yarn
 $ yarn dev
 ```
