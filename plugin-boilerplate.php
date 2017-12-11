@@ -12,6 +12,7 @@
  * Domain Path:        /languages
  * Requires at least:  @@requires
  * Tested up to:       @@tested_up_to
+ * Requires PHP:       5.6
  *
  * @@name is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -39,12 +40,27 @@ if ( ! defined( 'WPINC' ) ) {
 /**
  * Check the minimum required PHP version.
  *
+ * NOTE: This is likely a temporary requirement. The Core team is working on an
+ * update that would allow minimum PHP requirements for plugins:
+ * https://core.trac.wordpress.org/ticket/40934
+ *
+ * Once this has been implemented, we can do a WP version check to only run this
+ * on outdated WordPress installations and/or eventually delete it altogether.
+ *
  * @since 1.0.0
  */
 
 $min_php = '5.6.0';
 
 if ( ! version_compare( PHP_VERSION, $min_php, '>=' ) ) {
+	add_action( 'admin_notices', function () use ( $min_php ) {
+		$class = 'notice notice-error';
+		/* translators: %s indicates the minimum PHP version number */
+		$message = sprintf( __( 'Whoops! @@name requires at least PHP version %s to work. Please upgrade your PHP version to enable @@name.', '@@textdomain' ), $min_php );
+
+		printf( '<div class="%1$s"><p>%2$s</p></div>', esc_attr( $class ), esc_html( $message ) );
+	} );
+
 	return false;
 }
 
@@ -52,13 +68,13 @@ include_once 'lib/autoload.php';
 
 /**
  * The code that runs during plugin activation.
- * This action is documented in lib/Activator.php
+ * This action is documented in lib/class-ctivator.php
  */
 register_activation_hook( __FILE__, '\ThatPluginCompany\PluginNamespace\Activator::activate' );
 
 /**
  * The code that runs during plugin deactivation.
- * This action is documented in lib/Deactivator.php
+ * This action is documented in lib/class-deactivator.php
  */
 register_deactivation_hook( __FILE__, '\ThatPluginCompany\PluginNamespace\Deactivator::deactivate' );
 
