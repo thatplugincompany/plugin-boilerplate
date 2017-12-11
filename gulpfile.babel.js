@@ -35,7 +35,7 @@ const config = {
   build: !!util.env.build,
   src: {
     php: ['**/*.php', '!node_modules/**/*.php'],
-    translateableFiles: ['**/*.php', '!node_modules/**/*.php', '!build/**/*.php'],
+    translateableFiles: ['build/**/*.php'],
     js: ['src/js/**/*.js'],
     css: ['src/css/**/*.scss'],
     img: ['src/img/**/*']
@@ -248,26 +248,6 @@ gulp.task('copy', () => {
 
 
 /**
- * I18n.
- *
- * Create .po file.
- */
-gulp.task('i18n', () =>
-  gulp.src(config.src.translateableFiles)
-    .pipe(pot({
-      domain        : '@@textdomain',
-      destFile      : `${pkg.config.slug}.pot`,
-      package       : pkg.config.name,
-      bugReport     : pkg.config.author.uri,
-      lastTranslator: pkg.author,
-      team          : pkg.config.author.uri,
-    }))
-    .pipe(gulp.dest(`${config.build.folder}/${pkg.config.slug}/languages/${pkg.config.slug}.pot`,))
-)
-
-
-
-/**
  * String replace.
  *
  * Replaces all placeholders with their correct values from package.json.
@@ -340,6 +320,26 @@ gulp.task('replace', () =>
 
 
 /**
+ * I18n.
+ *
+ * Create .po file.
+ */
+gulp.task('i18n', () =>
+  gulp.src(config.src.translateableFiles)
+    .pipe(pot({
+      domain        : pkg.config.slug,
+      destFile      : `${pkg.config.slug}.pot`,
+      package       : pkg.config.name,
+      bugReport     : pkg.config.author.uri,
+      lastTranslator: pkg.author,
+      team          : pkg.config.author.uri,
+    }))
+    .pipe(gulp.dest(`${config.build.folder}/${pkg.config.slug}/languages/${pkg.config.slug}.pot`,))
+)
+
+
+
+/**
  * Zip.
  */
 gulp.task('zip', () =>
@@ -382,8 +382,8 @@ gulp.task(
       'js',
       'img',
       'copy',
-      'i18n',
       'replace',
+      'i18n',
       'zip',
       () =>
         gulp.src('')
