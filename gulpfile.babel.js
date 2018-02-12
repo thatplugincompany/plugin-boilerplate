@@ -34,7 +34,7 @@ browserSync.create()
 const config = {
   build: !!util.env.build,
   src: {
-    php: ['**/*.php', '!node_modules/**/*.php'],
+    php: ['**/*.php', '!./**/autoload.php', '!vendor/**/*', '!node_modules/**/*'],
     translateableFiles: ['build/**/*.php'],
     js: ['src/js/**/*.js'],
     css: ['src/css/**/*.scss'],
@@ -367,7 +367,7 @@ gulp.task(
   () => {
     gulp.watch(config.src.js, ['lintJS', 'js'])
     gulp.watch(config.src.css, ['lintCSS', 'css'])
-    gulp.watch(['./**/*.php', '!vendor/**/*', '!node_modules/**/*'], ['reload', 'lintPHP'])
+    gulp.watch(config.src.php, ['reload', 'lintPHP'])
   }
 )
 
