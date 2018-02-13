@@ -258,7 +258,7 @@ gulp.task('replace', () =>
       patterns: [
         {
           match: /PluginNamespace/g,
-          replacement: pkg.config.name.replace(' ', '')
+          replacement: pkg.config.name.replace(/ /g, '')
         },
         {
           match: 'name',
